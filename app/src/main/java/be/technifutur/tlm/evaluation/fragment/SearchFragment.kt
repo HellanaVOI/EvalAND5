@@ -36,8 +36,10 @@ class SearchFragment : Fragment() {
         binding.searchBar.addTextChangedListener {
             if(it != null && it.toString().length >= 3){
                 binding.noItem.visibility = View.GONE
+                binding.recyclerView.visibility = View.VISIBLE
                 getSearchResult(binding.searchBar.text.toString())
             }else{
+                binding.recyclerView.visibility = View.GONE
                 binding.noItem.visibility = View.VISIBLE
             }
         }
