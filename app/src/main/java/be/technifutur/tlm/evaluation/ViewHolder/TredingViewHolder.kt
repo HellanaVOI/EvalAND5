@@ -12,7 +12,7 @@ class TredingViewHolder(private var viewBinding: CellMiniatureBinding) :
     RecyclerView.ViewHolder(viewBinding.root) {
 
     fun bind(item: MovieResponse) {
-        viewBinding.noteMovie.text = item.note.toString()
+        viewBinding.noteMovie.text = item.note.toString().subSequence(0,3)
 
         Picasso.get()
             .load("https://image.tmdb.org/t/p/original${item.poster}")

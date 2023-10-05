@@ -28,7 +28,7 @@ interface MovieService {
         "Accept: Content-type: application/json",
         "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NTUzMDMxMjA3NTk3MmE0MjVmNWZhMTNlMjFiMjE4ZiIsInN1YiI6IjY1MWU1ZDEyM2QzNTU3MDBlMjNkYjY3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1iCRc3NpRaxTfAXaLutiEzGqHbRQAD1xa9hGFW9tAbY"
     )
-    @GET("/trending/all/day")
+    @GET("trending/all/day")
     suspend fun getTreding(
         @Query("language", encoded = false) language: String? = "fr-FR"
     ): Response<MovieListResponse>

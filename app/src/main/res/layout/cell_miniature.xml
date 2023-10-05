@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cell_movie"
     android:background="@color/black"
-    android:layout_width="75dp"
-    android:layout_height="100dp">
+    android:layout_width="100dp"
+    android:layout_height="150dp"
+    android:layout_margin="20dp">
 
     <ImageView
         android:id="@+id/img_movie"
@@ -19,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0.0"
-        android:backgroundTint="@color/purple_200"
+        android:background="@color/purple_200"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
