@@ -64,7 +64,7 @@ class SearchFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 try {
                     if (response.isSuccessful) {
-                        var listResponse = response.body()?.let {
+                        response.body()?.let {
                             setupRecyclerView(it)
                         }
                     }
