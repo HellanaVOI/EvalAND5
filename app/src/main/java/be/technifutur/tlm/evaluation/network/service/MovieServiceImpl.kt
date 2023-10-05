@@ -40,4 +40,12 @@ class MovieServiceImpl: MovieService {
 
     }
 
+    override suspend fun getTreding(language: String?): Response<MovieListResponse> {
+        return getRetrofit().create(MovieService::class.java).getTreding()
+    }
+
+    override suspend fun searchSimilar(id: String, language: String?): Response<MovieListResponse> {
+        return getRetrofit().create(MovieService::class.java).searchSimilar(id)
+    }
+
 }

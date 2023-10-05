@@ -1,10 +1,13 @@
 package be.technifutur.tlm.evaluation.network.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-class MovieResponse {
+@Parcelize
+class MovieResponse : Parcelable {
 
-    @SerializedName("imdb_id")
+    @SerializedName("id")
     var id: String = "no_id"
     @SerializedName("original_title")
     var name: String= "not_title"

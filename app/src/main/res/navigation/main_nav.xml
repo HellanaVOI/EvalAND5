@@ -16,7 +16,16 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="be.technifutur.tlm.evaluation.MovieDetailFragment"
+        android:name="be.technifutur.tlm.evaluation.fragment.MovieDetailFragment"
         android:label="fragment_movie_detail"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail" >
+        <argument
+            android:name="movie"
+            app:argType="be.technifutur.tlm.evaluation.network.model.MovieResponse" />
+    </fragment>
+    <fragment
+        android:id="@+id/tredingFragment"
+        android:name="be.technifutur.tlm.evaluation.fragment.TredingFragment"
+        android:label="fragment_treding"
+        tools:layout="@layout/fragment_treding" />
 </navigation>
