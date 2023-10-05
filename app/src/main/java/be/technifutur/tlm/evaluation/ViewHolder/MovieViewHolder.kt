@@ -4,22 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import be.technifutur.tlm.evaluation.databinding.CellMovieBinding
+import be.technifutur.tlm.evaluation.isNote
 import be.technifutur.tlm.evaluation.network.model.MovieResponse
+import be.technifutur.tlm.evaluation.toCustomDate
 import com.squareup.picasso.Picasso
 
 class MovieViewHolder(private var viewBinding: CellMovieBinding, val onClick: (MovieResponse) -> Unit) :
     RecyclerView.ViewHolder(viewBinding.root) {
 
     fun bind(item: MovieResponse) {
-
-        //TODO: Utiliser le date Formate pour mettre la date correctement
-        //TODO: Empecher le titre de se mettre dans la note
         //TODO: Arrondir le fond de la note (cardboard ?)
-        //TODO: Mettre un espace entre les différents item de la liste
 
         viewBinding.titleMovie.text = item.name
-        viewBinding.noteMovie.text = item.note.toString().subSequence(0,3)
-        viewBinding.dateMovie.text = item.date
+        viewBinding.noteMovie.text = item.note?.isNote()
+        viewBinding.dateMovie.text = item.date?.toCustomDate()
 
         Picasso.get()
             .load("https://image.tmdb.org/t/p/original${item.poster}")

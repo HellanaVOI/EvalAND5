@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.technifutur.tlm.evaluation.ViewHolder.TredingAdapter
 import be.technifutur.tlm.evaluation.databinding.FragmentMovieDetailBinding
+import be.technifutur.tlm.evaluation.isNote
 import be.technifutur.tlm.evaluation.network.model.MovieListResponse
 import be.technifutur.tlm.evaluation.network.service.MovieServiceImpl
 import com.squareup.picasso.Picasso
@@ -47,7 +48,7 @@ class MovieDetailFragment : Fragment() {
 
         binding.titleMovie.text = movie.name
         binding.descMovie.text = movie.desc
-        binding.noteMovie.text = movie.note.toString().subSequence(0,3)
+        binding.noteMovie.text = movie.note?.isNote()
 
         Picasso.get()
             .load("https://image.tmdb.org/t/p/original${movie.poster}")

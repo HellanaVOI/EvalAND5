@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import be.technifutur.tlm.evaluation.databinding.CellMiniatureBinding
+import be.technifutur.tlm.evaluation.isNote
 import be.technifutur.tlm.evaluation.network.model.MovieResponse
 import com.squareup.picasso.Picasso
 
@@ -12,7 +13,7 @@ class TredingViewHolder(private var viewBinding: CellMiniatureBinding) :
     RecyclerView.ViewHolder(viewBinding.root) {
 
     fun bind(item: MovieResponse) {
-        viewBinding.noteMovie.text = item.note.toString().subSequence(0,3)
+        viewBinding.noteMovie.text = item.note?.isNote()
 
         Picasso.get()
             .load("https://image.tmdb.org/t/p/original${item.poster}")
