@@ -37,7 +37,10 @@ class TredingFragment : Fragment() {
     private fun setupRecyclerView(movieList: MovieListResponse) {
         val recyclerView = binding!!.recyclerView
         recyclerView.layoutManager = GridLayoutManager(context, 3)
-        recyclerView.adapter = TredingAdapter(movieList.list)
+        recyclerView.adapter = TredingAdapter(movieList.list){ movie ->
+            val direction = TredingFragmentDirections.actionTredingFragmentToMovieDetailFragment(movie)
+            findNavController().navigate(direction)
+        }
     }
 
     private fun getTredingResult() {

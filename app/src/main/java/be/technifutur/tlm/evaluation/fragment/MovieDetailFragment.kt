@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -61,8 +62,12 @@ class MovieDetailFragment : Fragment() {
 
     private fun setupRecyclerView(movieList: MovieListResponse) {
         val recyclerView = binding!!.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = TredingAdapter(movieList.list)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = TredingAdapter(movieList.list) { movie ->
+            val direction = MovieDetailFragmentDirections.actionMovieDetailFragmentSelf(movie)
+            findNavController().navigate(direction)
+        }
     }
 
     private fun getSearchResult() {

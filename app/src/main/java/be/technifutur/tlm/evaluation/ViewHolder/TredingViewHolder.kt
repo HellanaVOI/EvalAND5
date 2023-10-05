@@ -9,7 +9,7 @@ import be.technifutur.tlm.evaluation.network.model.MovieResponse
 import com.squareup.picasso.Picasso
 
 
-class TredingViewHolder(private var viewBinding: CellMiniatureBinding) :
+class TredingViewHolder(private var viewBinding: CellMiniatureBinding, val onClick: (MovieResponse) -> Unit) :
     RecyclerView.ViewHolder(viewBinding.root) {
 
     fun bind(item: MovieResponse) {
@@ -18,10 +18,14 @@ class TredingViewHolder(private var viewBinding: CellMiniatureBinding) :
         Picasso.get()
             .load("https://image.tmdb.org/t/p/original${item.poster}")
             .into(viewBinding.imgMovie)
+
+        viewBinding.cellMovie.setOnClickListener{
+            onClick(item)
+        }
     }
 }
 
-class TredingAdapter(private var ext: MutableList<MovieResponse>) :
+class TredingAdapter(private var ext: MutableList<MovieResponse>, val onClick: (MovieResponse) -> Unit) :
 
     RecyclerView.Adapter<TredingViewHolder>() {
     private lateinit var binding: CellMiniatureBinding
@@ -33,7 +37,7 @@ class TredingAdapter(private var ext: MutableList<MovieResponse>) :
         //charge le layout de la cellule
         binding = CellMiniatureBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
-        return TredingViewHolder(binding)
+        return TredingViewHolder(binding, onClick)
     }
 
     override fun onBindViewHolder(holder: TredingViewHolder, position: Int) {
