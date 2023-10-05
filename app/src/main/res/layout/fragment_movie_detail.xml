@@ -8,17 +8,77 @@
 
     <ImageView
         android:id="@+id/header_detail"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/purple_500"/>
+
+    <ImageView
+        android:id="@+id/img_detail"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+        tools:background="@color/purple_200"/>
+
+    <TextView
+        tools:text="0.0"
+        android:id="@+id/note_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="@id/img_detail"
+        app:layout_constraintBottom_toBottomOf="@id/img_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/red"
+
         />
 
+    <TextView
+        tools:text="movie title"
+        android:id="@+id/title_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toEndOf="@id/img_detail"
+        app:layout_constraintTop_toBottomOf="@id/header_detail"
+        />
+
+    <TextView
+        android:text="Synopsis"
+        android:id="@+id/title_synopsis"
+        style="@style/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_detail"
+        />
+
+    <TextView
+        tools:text="description of Movie"
+        android:id="@+id/desc_movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_synopsis"
+        />
+
+    <TextView
+        android:text="Similar titles"
+        android:id="@+id/title_similar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/desc_movie"
+        style="@style/title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_similar"
         android:layout_margin="20dp"
         />
 

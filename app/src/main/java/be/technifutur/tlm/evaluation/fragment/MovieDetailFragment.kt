@@ -35,13 +35,27 @@ class MovieDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMovieDetailBinding.inflate(layoutInflater)
-        //getSearchResult()
+        getSearchResult()
+        setupFragment()
 
-        Picasso.get()
-                .load("https://image.tmdb.org/t/p/original${args.movie.backdrop}")
-                .into(binding.headerDetail)
 
         return binding.root
+    }
+
+    private fun setupFragment(){
+        val movie = args.movie
+
+        binding.titleMovie.text = movie.name
+        binding.descMovie.text = movie.desc
+        binding.noteMovie.text = movie.note.toString().subSequence(0,3)
+
+        Picasso.get()
+            .load("https://image.tmdb.org/t/p/original${movie.poster}")
+            .into(binding.imgDetail)
+
+        Picasso.get()
+            .load("https://image.tmdb.org/t/p/original${movie.backdrop}")
+            .into(binding.headerDetail)
     }
 
     private fun setupRecyclerView(movieList: MovieListResponse) {
